@@ -47,8 +47,15 @@ When you use this script, it won't move anything from the local repo, it will on
 create commits as requested and, when it is finished, it will write the commit ID of the
 tip of the resulting rebased/replayed branch, much the same way git-commit-tree behaves.
 
+```
+$ ./git-replay.py HEAD v2.35.0 v2.36.0-rc0
+It might not look like it but...
+I am working. Check CPU and disk usage.
+f0b7663aa1b6e009e27c185b89ad88f683d773aa
+```
+
 # copyright/license
 
-Copyright (c) 2023 Edmundo Carmona Antoranz
+Copyright (c) 2022, 2023 Edmundo Carmona Antoranz
 
 Released under the terms of GPLv2

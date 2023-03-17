@@ -47,6 +47,11 @@ When you use this script, it won't move anything from the local repo, it will on
 create commits as requested and, when it is finished, it will write the commit ID of the
 tip of the resulting rebased/replayed branch, much the same way git-commit-tree behaves.
 
+$ ./git-replay.py HEAD v2.35.0 v2.36.0-rc0
+It might not look like it but...
+I am working. Check CPU and disk usage.
+f0b7663aa1b6e009e27c185b89ad88f683d773aa
+
 TODO
  - careful with tags
 """
@@ -74,6 +79,8 @@ parser.add_argument('old_base', metavar="old-base", type=str,
 			"This revision has the same tree as the new_base")
 parser.add_argument('tip', metavar="tip", type=str,
 		    help="Tip of revisions to replay.")
+parser.add_argument('--verbose', action='store_true',
+		    help="Show the equivalent commits.")
 args = parser.parse_args()
 
 import os
@@ -154,6 +161,12 @@ def git_replay_revision(revision, parents):
 	output = subprocess.check_output(arguments, stdin=ps.stdout)
 	return remove_eol(output.decode())
 
+# main code
+if not args.verbose:
+	sys.stderr.write("It might not look like it but...\n")
+	sys.stderr.write("I am working. Check CPU and disk usage.\n")
+	sys.stderr.flush()
+
 # let's compare the trees of the old-tip and the new-tip
 
 new_base_tree=git_get_tree(args.new_base)
@@ -189,7 +202,7 @@ def replay(revision: str) -> str:
 	
 	Return the new oid of the revision
 	"""
-	global revisions
+	global revisions, args
 	# get parents for said revision
 	orig_parents=git_get_parents(revision)
 	# get the mapped revisions for each parent
@@ -209,8 +222,9 @@ def replay(revision: str) -> str:
 	# now we need to create the new revision
 	new_revision = git_replay_revision(revision, parents)
 	
-	sys.stderr.write(f"{revision} -> {new_revision}\n")
-	sys.stderr.flush()
+	if (args.verbose):
+		sys.stderr.write(f"{revision} -> {new_revision}\n")
+		sys.stderr.flush()
 	
 	return new_revision
 
