@@ -35,7 +35,6 @@ Unmerged paths:
         both modified:   GIT-VERSION-GEN
         both modified:   RelNotes
 ```
-End of example
 
 Rebase is using the merge engine to replay all the revisions, for understandable reasons.
 `git-replay.py` would instead recreate all the original revisions on top of `HEAD` without
@@ -51,4 +50,5 @@ tip of the resulting rebased/replayed branch, much the same way git-commit-tree 
 # copyright/license
 
 Copyright (c) 2023 Edmundo Carmona Antoranz
+
 Released under the terms of GPLv2
