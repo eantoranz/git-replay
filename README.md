@@ -37,8 +37,8 @@ Unmerged paths:
 ```
 
 Rebase is using the merge engine to replay all the revisions, for understandable reasons.
-`git-replay.py` would instead recreate all the original revisions on top of `HEAD` without
-running any actual merge.
+`git-replay.py` would instead recreate all the original revisions on top of the desired
+point (doesn't have to be `HEAD`) without running any actual merge.
 
 Technically speaking, the script will create new revisions using the same metadata from the
 original revisions, except that it would change the parent IDs and the committer.
