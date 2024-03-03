@@ -1,4 +1,4 @@
-# IMPORTANT
+# ANNOUNCEMENT
 
 Since git 2.44 there is a
 [`git replay`](https://github.com/git/git/blob/3c2a3fdc388747b9eaf4a4a4f2035c1c9ddb26d0/Documentation/RelNotes/2.44.0.txt#L19)
@@ -6,18 +6,16 @@ builtin and I do not want it to be confused with the script I am
 providing here _therefore_ I think it makes sense that I rename
 this project to something different so there is no confusion.
 
-I haven't picked up a name yet but I am leaving a note here so you
-know what my intent is at the moment (to be taken care of shortly).
-
-Once I pick up a name and setup the project there, I will adjust
-this `README` to point to the new location so people who used the
-links to **this** project that have been provided here or there can
-still find the new one.
+The new project is called [`git-duplicate`](https://github.com/eantoranz/git-duplicate). I
+am leaving in this repository the original code for `git-replay`, but consider yourself
+warned/notified that this is **not** the same thing as the git-replay builtin. Development will continue
+in `git-duplicate` and this repo won't see more development going forward.
 
 Thanks for reading... and perhaps using the project.
 
 Edmundo
-March 2nd, 2024
+
+March 3rd, 2024
 
 # usage
 
