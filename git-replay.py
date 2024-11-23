@@ -56,6 +56,21 @@ TODO
  - careful with tags
 """
 
+import sys
+sys.stderr.write("Thanks for using git-replay.\n")
+sys.stderr.write("\n")
+sys.stderr.write("This project has been renamed git-duplicate to avoid being confused fot git's git-replay.\n")
+sys.stderr.write("git-replay (what you are running) is no longer been developed.\n")
+sys.stderr.write("git-duplicate continued development and has support for pygit2 which accelerates the duplication\n")
+sys.stderr.write("process quite a bit. You should consider using that instead.\n")
+sys.stderr.write("git-duplicate can be found over here: https://github.com/eantoranz/git-duplicate\n")
+sys.stderr.write("\n")
+sys.stderr.write("BR\n")
+sys.stderr.write("Edmundo\n")
+sys.stderr.write("\n")
+
+sys.stderr.flush()
+
 import argparse
 
 parser=argparse.ArgumentParser(
@@ -85,7 +100,6 @@ args = parser.parse_args()
 
 import os
 import subprocess
-import sys
 
 def remove_eol(line: str) -> str:
 	return line.rstrip("\n")
